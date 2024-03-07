@@ -3,13 +3,14 @@ import java.util.Scanner;
 public class MenuDeposito {
 
     static  Scanner guardar = new Scanner(System.in);
-
+    static Usuario listUsuario[]=new Usuario[5];
     public static void main(String[] args) {
         verificarUsuario();
     }
 
     public static void verificarUsuario(){
-        Usuario listUsuario[]=new Usuario[5];
+
+        
         
         String usuario;
         System.out.println("ingrese su usuario");
@@ -34,7 +35,19 @@ public class MenuDeposito {
             case 1:
                
             break;
+
+            case 2:
+               agregarProducto();
+            break;
+            case 3:
+               
+            break;
     }
     
 }
+
+public static void agregarProducto(){
+    
+}
+
 }
