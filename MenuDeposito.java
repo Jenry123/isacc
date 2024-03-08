@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class MenuDeposito {
 
     static  Scanner guardar = new Scanner(System.in);
-    static Almacen listAlmacen[]=new Almacen[5];
-     static  Usuario listaUsuario[]=new Usuario[5];
+     static Almacen listAlmacen[]=new Almacen[5];
+     static Usuario listaUsuario[]=new Usuario[5];
      static Almacen objAlmacen;
     public static void main(String[] args) {
         mostrarMenu();
@@ -42,10 +42,10 @@ public class MenuDeposito {
             break;
 
             case 2:
-               agregarProducto();
+               agregarProducto(listAlmacen);
             break;
             case 3:
-              objAlmacen.mostrarProducto();
+              mostrarProducto(listAlmacen);
             break;
             default:
             System.out.println( "Opcion no valida" );
@@ -60,7 +60,7 @@ public class MenuDeposito {
     }
     
 
-public static void agregarProducto(){
+public static void agregarProducto(Almacen lisAlmacen[]){
     
     System.out.println("ingrese  el nombre del producto");
     String nombreProd= guardar.next();
@@ -79,6 +79,11 @@ public static void agregarProducto(){
 
 }
 
+public static void mostrarProducto(Almacen lisAlmacen[]){
+    for(int i=0; i<listAlmacen.length;i++){
+      lisAlmacen[i].mostrarProducto();
+    }
+}
 
 
 }
