@@ -3,9 +3,12 @@ import java.util.Scanner;
 public class MenuDeposito {
 
     static  Scanner guardar = new Scanner(System.in);
-    static Usuario listUsuario[]=new Usuario[5];
+    static Almacen listAlmacen[]=new Almacen[5];
+     static  Usuario listaUsuario[]=new Usuario[5];
+     static Almacen objAlmacen;
     public static void main(String[] args) {
-        verificarUsuario();
+        mostrarMenu();
+        //verificarUsuario();
     }
 
     public static void verificarUsuario(){
@@ -16,18 +19,20 @@ public class MenuDeposito {
         System.out.println("ingrese su usuario");
         usuario =guardar.nextLine();
 
-        for(int i=0; i<listUsuario.length; i++){
-                if(usuario==listUsuario[i].getUsuario()){
+        for(int i=0; i<listaUsuario.length; i++){
+                if(usuario==listaUsuario[i].getUsuario()){
                     mostrarMenu();
+                }else{
+                    System.out.println("No se encontro el usuario, intente de nuevo");
                 }
         }
 
     }
 
     public static void mostrarMenu(){
-        Almacen objAlmacen;
-        
+        String r;
         int opcion;
+     do{
         System.out.println("hola bienvenido usuario digame que desea realizar \n");
         System.out.println("1)total de productos 2)agregar productos 3)eliminar productos");
         opcion=guardar.nextInt();
@@ -40,14 +45,40 @@ public class MenuDeposito {
                agregarProducto();
             break;
             case 3:
-               
+              objAlmacen.mostrarProducto();
             break;
+            default:
+            System.out.println( "Opcion no valida" );
+            break;
+
+        }
+
+        System.out.println("desea continuar? s/n ");
+        r= guardar.next();
+
+     }while(r.equals("s"));
     }
     
-}
 
 public static void agregarProducto(){
     
+    System.out.println("ingrese  el nombre del producto");
+    String nombreProd= guardar.next();
+    System.out.println("ingrese la cantidad del producto");
+    int cantidad= guardar.nextInt();
+    System.out.println("ingrese el precio del producto");
+    int precio= guardar.nextInt();
+    System.out.println("ingrese el codigo del producto");
+    int codigoProd= guardar.nextInt();
+
+    for(int i=0; i<listAlmacen.length;i++){
+        objAlmacen=new  Almacen(nombreProd,cantidad,precio,codigoProd);
+        listAlmacen[i]=objAlmacen;
+    }
+
+
 }
+
+
 
 }

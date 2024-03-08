@@ -1,7 +1,8 @@
 package isacc;
 
 
-public class Producto {
+public class Producto extends Almacen{
 
+    
     
 }

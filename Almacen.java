@@ -50,7 +50,9 @@ public class  Almacen {
         return precioProducto;
     }
 
-
+    public void mostrarProducto(){
+System.out.println(" productos: \t \n"+getNombre()+"\n"+getCantidad()+"\n"+getPrecio()+"\n"+getCodigo());
+    }
 
 
 
